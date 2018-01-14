@@ -7,9 +7,10 @@ export default class Trip extends React.Component {
 
   render() {
     return (
-      <div>
-        Trip
-      </div>
+        <div>
+          <label>Trip Name:</label>
+          <input type="text"/>
+        </div>
     );
   }
 }

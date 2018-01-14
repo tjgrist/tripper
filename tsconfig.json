@@ -14,6 +14,6 @@
   "exclude": [
       "bin",
       "node_modules",
-      "./ClientApp/__tests__/*.test.tsx"
+      "./ClientApp/__tests__/*.test.tsx"      
   ]
 }

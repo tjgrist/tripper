@@ -1,10 +1,13 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
+import TripEditor from './TripEditor';
 
 export class Home extends React.Component<RouteComponentProps<{}>, {}> {
     public render() {
-        return <div>
-            <h1>Trip Calculator</h1>
-        </div>;
+        return (
+            <div>
+                <TripEditor/>
+            </div>
+        )
     }
 }
