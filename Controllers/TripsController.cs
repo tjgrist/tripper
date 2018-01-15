@@ -17,18 +17,20 @@ namespace trips.Controllers
             if (!ModelState.IsValid){
                 return BadRequest();
             }
-            //TODO replace with LINQ
+            this.DetermineDebts(trip);
+            return Json(trip);
+        }
+
+        private decimal DetermineCostPerStudent (Trip trip) {
             trip.Students.ForEach(s => s.TotalSpent = s.Data.Expenses.Sum());
-            // foreach (var stud in trip.Students) 
-            // {
-            //     foreach (var exp in stud.Data.Expenses)
-            //     {
-            //         stud.TotalSpent += exp;
-            //     }
-            // }
-            var students = trip.Students.OrderByDescending(s => s.TotalSpent).ToList();
             trip.Cost = trip.Students.Sum(s => s.TotalSpent);
             decimal costPerStudent = trip.Cost / 3;
+            return costPerStudent;
+        }
+
+        private Trip DetermineDebts (Trip trip) {
+            decimal costPerStudent = DetermineCostPerStudent(trip);
+            var students = trip.Students.OrderByDescending(s => s.TotalSpent).ToList();
             trip.Debts = new List<Debt>();
             for (int i = 1; i <= students.Count - 1; i++)
             {
@@ -41,7 +43,7 @@ namespace trips.Controllers
                     trip.Debts.Add(debt);
                 }
             }
-            return Json(trip);
+            return trip;
         }
     }
 }
