@@ -13,8 +13,6 @@ namespace trips.Controllers
         [HttpPost("[action]")]
         public IActionResult Calculate([FromBody] Trip trip)
         {
-            trip.Cost = 437.78;
-            return Json(trip);
             if (!ModelState.IsValid){
                 return BadRequest();
             }
@@ -26,9 +24,25 @@ namespace trips.Controllers
                     stud.TotalSpent += exp.Value;
                 }
             }
-            var result = trip.Students.OrderBy(s => s.TotalSpent);
-            trip.Cost = (double)trip.Students.Sum(s => s.TotalSpent);
-            var debts = new List<Debt>();
+            var students = trip.Students.OrderByDescending(s => s.TotalSpent).ToList();
+            //trip.Students = students;
+            trip.Cost = trip.Students.Sum(s => s.TotalSpent);
+            decimal costPerPerson = trip.Cost / 3;
+            trip.Debts = new List<Debt>();
+            for (int i = 1; i <= students.Count - 1; i++)
+            {
+                if (students[i].TotalSpent < costPerPerson) {
+                    var debt = new Debt() {
+                        Owner = students[i],
+                        Collector = students[0],
+                        Amount = decimal.Round(costPerPerson - students[i].TotalSpent, 2, MidpointRounding.AwayFromZero)
+                    };
+                    trip.Debts.Add(debt);
+                }
+                else if (students[i].TotalSpent > costPerPerson) {
+
+                }
+            }
             return Json(trip);
         }
 
@@ -43,7 +57,9 @@ namespace trips.Controllers
         {
             public int Id { get; set; }
             public List<Student> Students { get; set; }
-            public double Cost { get; set; }
+            public decimal Cost { get; set; }
+            public List<Debt> Debts { get; set; }
+            
         }
 
         public class Student {
