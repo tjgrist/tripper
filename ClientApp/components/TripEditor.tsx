@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Form, Text, NestedForm} from 'react-form';
 import { ExpenseForm, StudentForm } from './Forms';
-import { Trip, Debt } from '../models/interfaces'
+import { Trip, Debt } from './interfaces'
 
 const URL = 'api/trips/calculate'
 
@@ -12,7 +12,6 @@ export default class TripEditor extends React.Component<any, any> {
   }
 
   private handleSubmit() {
-    // return console.log(this.state.submittedValues);
     if (this.state.submittedValues) {
       let body = {
         method: 'POST',
@@ -21,7 +20,6 @@ export default class TripEditor extends React.Component<any, any> {
           'Content-Type': 'application/json'
         })
       }
-      
       fetch(URL, body).then(res => res.json())
         .catch(error => console.error('Error:', error))
         .then(response => this.handleResponse(response))

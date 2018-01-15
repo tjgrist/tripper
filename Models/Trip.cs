@@ -9,6 +9,7 @@ namespace trips.Models {
         public class Trip
         {
             public int Id { get; set; }
+            public string Name { get; set; }
             public List<Student> Students { get; set; }
             public decimal Cost { get; set; }
             public List<Debt> Debts { get; set; }
