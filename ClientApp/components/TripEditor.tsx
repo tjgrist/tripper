@@ -21,7 +21,7 @@ export default class TripEditor extends React.Component<any, any> {
         })
       }
       fetch(URL, body).then(res => res.json())
-        .catch(error => console.error('Error:', error))
+        .catch(error => {console.log('Error:', error); this.setState({result: error.message});})
         .then(response => this.handleResponse(response))
     }
   }
