@@ -6,24 +6,19 @@ interface Trip {
   
 interface Student {
     name: string
-    expenses: Array<Expense>
-}
-
-interface Expense {
-    value: number
+    totalSpent: number
+    data: Array<number>
 }
   
 interface Debt {
     owner: Student
     collector: Student
     amount: number
-  
 }
 
 export {
     Trip, 
     Student,
-    Expense,
     Debt
 }
   
