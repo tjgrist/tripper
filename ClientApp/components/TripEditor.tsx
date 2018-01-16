@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Form, Text, NestedForm} from 'react-form';
 import { ExpenseForm, StudentForm } from './Forms';
-import { Trip, Debt } from './interfaces'
+import { Trip, Debt } from './Interfaces'
 
 const URL = 'api/trips/calculate'
 
@@ -42,12 +42,12 @@ export default class TripEditor extends React.Component<any, any> {
           { formApi => (
             <div>
               <form onSubmit={formApi.submitForm} id="tripform">
-              <label htmlFor={'trip'}>Trip name </label>
-              <Text field="name" id={`name`} required />
+              <label htmlFor={'trip'}>Trip name</label>
+              <Text field="name" id={`tripname`} />
                 <StudentForm i={0} />
                 <StudentForm i={1} />
                 <StudentForm i={2} />
-                <button type="submit" className="mb-4 btn btn-primary">Submit</button>
+                <button type="submit" className="btn btn-primary">Submit</button>
               </form>
             </div>
           )}

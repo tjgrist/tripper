@@ -7,8 +7,8 @@ const StudentForm = ({i} : { i: any}) => (
         { formApi => (
           <div className="col-lg-3">
             <h3>Student {i+1}</h3>
-            <label htmlFor={`name-${i}`}>Name </label>
-            <Text field="name" id={`name-${i}`} />
+            <label className={`student-${i}`} htmlFor={`name-${i}`}>Name </label>
+            <Text field="name" id={`name-${i}`} required />
             <ExpenseForm />
           </div>
         )}
@@ -23,18 +23,16 @@ const StudentForm = ({i} : { i: any}) => (
         <div>
           { formApi.values.expenses && formApi.values.expenses.map( ( expense: number, i: number ) => (
             <div key={`expense${i}`}>
-              <label htmlFor={`expense-${i}`}>Expense #{i+1}:</label>
-              <Text field={['expenses', i]} id={`expense-${i}`} required type="number" min="0" defaultValue="0" step=".01"/>
+              <label htmlFor={`expense-${i}`}>expense: $</label>
+              <Text field={['expenses', i]} id={`expense-${i}`} required type="number" min="0" value="0" step=".01"/>
               <button
                 onClick={() => formApi.removeValue('expenses', i)}
-                type="button"
-                className="mb-4 btn btn-danger">X</button>
+                type="button" className="btn btn-danger" id={`delete-${i}`}>X</button>
             </div>
           ))}
           <button
           onClick={() => formApi.addValue('expenses', '')}
-          type="button"
-          className="mb-4 mr-4 btn btn-success">Add Expense</button>
+          type="button" className="btn btn-success">Add Expense</button>
         </div>
       )}
     </Form> 
