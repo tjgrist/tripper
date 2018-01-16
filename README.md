@@ -17,17 +17,12 @@ This project needed to use C# and React.js, so ASP.NET Core is used for the API 
 .NET Core 2.0 SDK: 
 https://github.com/dotnet/core/blob/master/release-notes/download-archives/2.0.0-download.md
 
-Node.js ^9.3 : https://nodejs.org/en/ 
-
-# Setup
-
-```npm install```
+Node.js: https://nodejs.org/en/ 
 
 # Run the application 
  
 ```
-dotnet restore
-dotnet run 
+npm install && dotnet run 
 ```
 
 # Run the unit tests for the React components via Jest 
