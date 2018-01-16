@@ -9,6 +9,9 @@ So, for example, Louis, Carter, and David took a trip together; Louis incurred e
 
 The output should include each student's name, and how much each student needs to pay out to any others. For simplicity's sake, it is safe to assume three students, two of which pay much less than the third
 
+# Further Notes
+
+This project needed to use C# and React.js, so I decided to use ASP.NET Core for the API side.
 
 # Setup
 
@@ -20,5 +23,12 @@ run
 ```
 dotnet restore
 dotnet run 
+```
+
+# Run the unit tests for the React components 
+
+run 
+``` 
+npm test 
 ```
 
