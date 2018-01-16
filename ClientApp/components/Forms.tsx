@@ -6,7 +6,7 @@ const StudentForm = ({i} : { i: any}) => (
       <Form>
         { formApi => (
           <div className="col-lg-3">
-            <h3>Student {i+1}</h3>
+            <h4>Student {i+1}</h4>
             <label className={`student-${i}`} htmlFor={`name-${i}`}>Name </label>
             <Text field="name" id={`name-${i}`} required />
             <ExpenseForm />

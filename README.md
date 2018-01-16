@@ -13,21 +13,24 @@ The output should include each student's name, and how much each student needs t
 
 This project needed to use C# and React.js, so I decided to use ASP.NET Core for the API side.
 
+# REQUIREMENTS
+.NET Core 2.0 SDK
+Node.js ^9.3
+npm 
+
 # Setup
 
-run ```npm install```
+```npm install```
 
 # Run the application 
-
-run 
+ 
 ```
 dotnet restore
 dotnet run 
 ```
 
-# Run the unit tests for the React components 
-
-run 
+# Run the unit tests via Jest for the React components 
+ 
 ``` 
 npm test 
 ```
