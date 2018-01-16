@@ -20,22 +20,22 @@ describe('Expense operations test suite', () => {
     it('should add a new expense field when Add Expense button is clicked', () => {
         const wrapper = mount(<TripEditor/>)
         wrapper.find('.btn.btn-success').first().simulate('click')
-        expect(wrapper.find('input #expense-0').length).toEqual(1);
+        expect(wrapper.find('input #expense-0').length).toEqual(1)
     })
 
     it('should produce a delete field button for a newly added expense', () => {
         const wrapper = mount(<TripEditor/>)
         wrapper.find('.btn.btn-success').first().simulate('click')
-        expect(wrapper.find('input #expense-0').length).toEqual(1);        
-        wrapper.find('.btn.btn-danger').exists()
+        expect(wrapper.find('input #expense-0').length).toEqual(1)        
+        expect(wrapper.find('.btn.btn-danger').length).toEqual(1)
     })
 
     it('should delete an added expense field when the delete X button is clicked', () => {
         const wrapper = mount(<TripEditor/>)
         wrapper.find('.btn.btn-success').first().simulate('click')
-        expect(wrapper.find('input #expense-0').length).toEqual(1);        
+        expect(wrapper.find('input #expense-0').length).toEqual(1)        
         wrapper.find('.btn.btn-danger').first().simulate('click')
-        expect(wrapper.find('input #expense-0').length).toEqual(0);
+        expect(wrapper.find('input #expense-0').length).toEqual(0)
     })
 
 })
