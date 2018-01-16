@@ -14,8 +14,9 @@ The output should include each student's name, and how much each student needs t
 This project needed to use C# and React.js, so I decided to use ASP.NET Core for the API side.
 
 # REQUIREMENTS
-.NET Core 2.0 SDK
-Node.js ^9.3
+.NET Core 2.0 SDK: https://github.com/dotnet/core/blob/master/release-notes/download-archives/2.0.0-download.md
+
+Node.js ^9.3 : https://nodejs.org/en/
 npm 
 
 # Setup
