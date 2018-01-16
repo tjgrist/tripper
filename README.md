@@ -16,7 +16,6 @@ This project needed to use C# and React.js, so I decided to use ASP.NET Core for
 # REQUIREMENTS
 .NET Core 2.0 SDK: 
 https://github.com/dotnet/core/blob/master/release-notes/download-archives/2.0.0-download.md
-or https://www.microsoft.com/net/download/macos
 
 Node.js ^9.3 : https://nodejs.org/en/ 
 
