@@ -28,5 +28,17 @@ describe('App test suite', () => {
       expect(wrapper.find('button').length).toEqual(4);
     })
 
+    it('should render the result state as an empty string', () => {
+      const wrapper = shallow(<TripEditor/>)
+      expect(wrapper.find('h5').text()).toEqual('')
+    })
+
+    it('should set the result state properly', () => {
+      const str = 'Mark owes julia $12.50'
+      const wrapper = shallow(<TripEditor/>)
+      wrapper.setState({result: str })
+      expect(wrapper.find('h5').text()).toEqual(str)
+    })
+
 });
 
