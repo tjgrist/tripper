@@ -16,14 +16,14 @@ export default class TripEditor extends React.Component<any, any> {
   private handleSubmit(submittedValues: Object) {
     this.setState({ submittedValues })
     if (this.state.submittedValues) {
-      let body = {
+      let data = {
         method: 'POST',
         body: JSON.stringify(this.state.submittedValues), 
         headers: new Headers({
           'Content-Type': 'application/json'
         })
       }
-      fetch(URL, body).then(res => res.json())
+      fetch(URL, data).then(res => res.json())
         .catch(error => {console.log('Error:', error); this.setState({result: error.message});})
         .then(response => this.handleResponse(response))
     }
