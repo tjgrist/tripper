@@ -7,8 +7,9 @@ import { Trip, Debt } from './Interfaces'
 const URL = 'api/trips/calculate'
 
 export default class TripEditor extends React.Component<any, any> {
+
   constructor() {
-    super();
+    super()
     this.state = {}
   }
 
@@ -44,10 +45,12 @@ export default class TripEditor extends React.Component<any, any> {
           { formApi => (
             <div>
               <form onSubmit={formApi.submitForm} id="tripform">
-              <label htmlFor={'trip'}>Trip name</label>
-              <Text field="name" id={`tripname`} />
+              <div style={{float: 'right'}} className={'tripmetadata'}>
+                <label htmlFor={'trip'}>Trip name</label>
+                <Text field="name" id={`tripname`} />
+                <button type="submit" className="btn btn-primary">Submit</button>  
+              </div>            
                 <StudentList/>
-                <button type="submit" className="btn btn-primary">Submit</button>
               </form>
             </div>
           )}

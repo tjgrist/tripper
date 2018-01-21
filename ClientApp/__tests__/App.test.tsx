@@ -10,7 +10,7 @@ describe('App test suite', () => {
 
     it('should render the the trip name label', () => {
       const wrapper = mount(<TripEditor/>)
-      expect(wrapper.find('form > label').text()).toContain('Trip name')
+      expect(wrapper.find('.tripmetadata > label').text()).toContain('Trip name')
     })
 
     it('should render the trip name input element', () => {
