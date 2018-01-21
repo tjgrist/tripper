@@ -43,7 +43,8 @@
     "webpack-hot-middleware": "2.18.2"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "dotnet run" 
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/ClientApp/setupTests.js",

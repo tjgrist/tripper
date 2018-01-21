@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Form, Text, NestedForm} from 'react-form';
 import { ExpenseForm, StudentForm } from './Forms';
+import StudentList from './StudentList'
 import { Trip, Debt } from './Interfaces'
 
 const URL = 'api/trips/calculate'
@@ -11,7 +12,8 @@ export default class TripEditor extends React.Component<any, any> {
     this.state = {}
   }
 
-  private handleSubmit() {
+  private handleSubmit(submittedValues: Object) {
+    this.setState({ submittedValues })
     if (this.state.submittedValues) {
       let body = {
         method: 'POST',
@@ -27,26 +29,24 @@ export default class TripEditor extends React.Component<any, any> {
   }
 
   private handleResponse (response: Trip) {
-    let result = 'Total trip cost: $' + response.cost + '\n'
+    let result = `Total trip cost: $${response.cost} \n;`
     response.debts.forEach((debt: Debt) => 
-      result += debt.owner.name + ' owes ' + debt.collector.name + ' $' + debt.amount + ';\n'
+      result += `${debt.owner.name} owes ${debt.collector.name} $${debt.amount} \n;`
     )
-    this.setState({result: result})
+    this.setState({result})
   }
 
   render() {
     return (
       <div className="row">
         <Form
-          onSubmit={submittedValues => {this.setState( { submittedValues } ); this.handleSubmit()}}>
+          onSubmit={submittedValues => { this.handleSubmit(submittedValues) }}>
           { formApi => (
             <div>
               <form onSubmit={formApi.submitForm} id="tripform">
               <label htmlFor={'trip'}>Trip name</label>
               <Text field="name" id={`tripname`} />
-                <StudentForm i={0} />
-                <StudentForm i={1} />
-                <StudentForm i={2} />
+                <StudentList/>
                 <button type="submit" className="btn btn-primary">Submit</button>
               </form>
             </div>
