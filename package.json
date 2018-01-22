@@ -44,7 +44,7 @@
   },
   "scripts": {
     "test": "jest",
-    "start": "dotnet run" 
+    "start": "dotnet run"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/ClientApp/setupTests.js",

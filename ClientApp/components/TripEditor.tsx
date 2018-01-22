@@ -5,12 +5,13 @@ import StudentList from './StudentList'
 import { Trip, Debt } from './Interfaces'
 
 const URL = 'api/trips/calculate'
+const initialState = {}
 
 export default class TripEditor extends React.Component<any, any> {
 
   constructor() {
     super()
-    this.state = {}
+    this.state = initialState
   }
 
   private handleSubmit(submittedValues: Object) {
@@ -37,6 +38,10 @@ export default class TripEditor extends React.Component<any, any> {
     this.setState({result})
   }
 
+  reset = () => {
+    this.setState(initialState)
+  }
+
   render() {
     return (
       <div className="row">
@@ -50,7 +55,7 @@ export default class TripEditor extends React.Component<any, any> {
                 <Text field="name" id={`tripname`} />
                 <button type="submit" className="btn btn-primary">Submit</button>  
               </div>            
-                <StudentList/>
+                <StudentList reset={this.reset}/>
               </form>
             </div>
           )}

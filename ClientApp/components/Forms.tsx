@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Form, Text, NestedForm} from 'react-form';
 
-const StudentForm = ({i} : { i: any}) => (
+const StudentForm = ({i} : { i: number}) => (
     <NestedForm field={['students', i]} key={`student-${i}`}>
       <Form>
         { formApi => (
